@@ -1,0 +1,50 @@
+import "./vendor/monogram/monogram.ttf";
+import { CheckBox, HorizontalBox } from "std-widgets.slint";
+import { Palette } from "constants.slint";
+import { SelectionRing } from "selection.slint";
+import { SelectionButton } from "button.slint";
+import { CheckboxGroup } from "checkbox_group.slint";
+import { VerticalButtonGroup } from "verticalbutton_group.slint";
+
+export component MainWindow inherits Window {
+    Rectangle {
+        width: 800px;
+        height: 600px;
+        background: Palette.background_color;
+        // HorizontalBox {
+        //     // height: ring.text_height;
+        //     SelectionButton {
+        //         string: "Left";
+        //     }
+
+        //     SelectionButton {
+        //         string: "Right";
+        //     }
+        // }
+        VerticalLayout {
+            CheckboxGroup {
+                entries: [{ title: "Foo" }, { title: "Button 2" }];
+                active_index: 1;
+                checked_index: 0;
+            }
+
+            VerticalButtonGroup {
+                entries: [{ title: "Button 1" }, { title: "Button 2" }, { title: "Button 3" }];
+                active_index: 1;
+            }
+        }
+
+        // Rectangle {
+        //     background: red;
+        //     width: text.width + 10px;
+        //     height: text.height + 10px;
+        //     text := Text {
+        //         text: "hi";
+        //     }
+        // }
+
+        // CheckBox {
+        //     text: "CheckBox";
+        // }
+    }
+}

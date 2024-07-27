@@ -1,0 +1,12 @@
+import { Palette } from "constants.slint";
+import { SelectionRing } from "selection.slint";
+export component SelectionButton inherits SelectionRing {
+    in property <string> title;
+    out property <length> text_height: text.height;
+    height: text.height;
+    text := Text {
+        font-family: "monogram";
+        text: title;
+        color: Palette.font_color;
+    }
+}

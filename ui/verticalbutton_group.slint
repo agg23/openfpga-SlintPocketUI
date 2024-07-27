@@ -1,0 +1,13 @@
+import { SelectionEntry } from "selection.slint";
+import { SelectionButton } from "button.slint";
+import { Sizes } from "constants.slint";
+
+export component VerticalButtonGroup inherits VerticalLayout {
+    in property <[SelectionEntry]> entries;
+    in property <int> active_index;
+    spacing: Sizes.group_gap;
+    for entry[i] in entries: SelectionButton {
+        title: entry.title;
+        active: i == active_index;
+    }
+}

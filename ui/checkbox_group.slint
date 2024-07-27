@@ -1,0 +1,14 @@
+import { SelectionButton } from "button.slint";
+import {SelectionEntry} from "selection.slint";
+import { Sizes } from "constants.slint";
+
+export component CheckboxGroup inherits HorizontalLayout {
+    in property <[SelectionEntry]> entries;
+    in property <int> active_index;
+    in property <int> checked_index;
+    spacing: Sizes.group_gap;
+    for entry[i] in entries: SelectionButton {
+        title: entry.title;
+        active: i == active_index;
+    }
+}
