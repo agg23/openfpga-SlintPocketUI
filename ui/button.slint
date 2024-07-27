@@ -10,7 +10,7 @@ export component SelectionButton inherits SelectionRing {
         x: Sizes.focus_ring_padding;
         y: Sizes.focus_ring_padding;
         text: title;
-        font-family: "monogram";
+        font-family: "Pixel Operator 8";
         font-size: Sizes.font_size;
         color: Palette.font_color;
         // Center align text
@@ -22,20 +22,22 @@ export component SelectionButton inherits SelectionRing {
 export component CheckboxButton inherits SelectionRing {
     in property <string> title;
     in property <bool> checked;
-    out property <length> text_height <=> self.height;
+    // out property <length> text_height <=> self.height;
+    height: 16px + 2 * Sizes.focus_ring_padding;
     HorizontalLayout {
         alignment: center;
         spacing: Sizes.checkbox_gap;
         Rectangle {
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             y: (parent.height - self.height) / 2;
             background: checked ? white : transparent;
         }
 
         text := Text {
             text: title;
-            font-family: "monogram";
+            y: (parent.height - Sizes.font_size) / 2;
+            font-family: "Pixel Operator 8";
             font-size: Sizes.font_size;
             color: Palette.font_color;
         }
