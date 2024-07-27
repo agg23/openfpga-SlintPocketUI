@@ -1,12 +1,43 @@
-import { Palette } from "constants.slint";
+import { Palette, Sizes } from "constants.slint";
 import { SelectionRing } from "selection.slint";
 export component SelectionButton inherits SelectionRing {
     in property <string> title;
-    out property <length> text_height: text.height;
-    height: text.height;
+    out property <length> text_height <=> self.height;
+    height: text.height + 2 * Sizes.focus_ring_padding;
+    // This will collapse the button to be the exact width of the content
+    // width: text.width + 2 * Sizes.focus_ring_padding;
     text := Text {
-        font-family: "monogram";
+        x: Sizes.focus_ring_padding;
+        y: Sizes.focus_ring_padding;
         text: title;
+        font-family: "monogram";
+        font-size: Sizes.font_size;
         color: Palette.font_color;
+        // Center align text
+        width: parent.width;
+        horizontal-alignment: center;
+    }
+}
+
+export component CheckboxButton inherits SelectionRing {
+    in property <string> title;
+    in property <bool> checked;
+    out property <length> text_height <=> self.height;
+    HorizontalLayout {
+        alignment: center;
+        spacing: Sizes.checkbox_gap;
+        Rectangle {
+            width: 16px;
+            height: 16px;
+            y: (parent.height - self.height) / 2;
+            background: checked ? white : transparent;
+        }
+
+        text := Text {
+            text: title;
+            font-family: "monogram";
+            font-size: Sizes.font_size;
+            color: Palette.font_color;
+        }
     }
 }

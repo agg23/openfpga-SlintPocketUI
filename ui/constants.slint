@@ -1,10 +1,13 @@
 export global Palette {
-    out property <color> background_color: #000000;
-    out property <color> focus_border: #CCCCCC;
-    out property <color> font_color: #FFFFFF;
+    in-out property <color> background_color: #000000;
+    in-out property <color> focus_border: #CCCCCC;
+    in-out property <color> font_color: #FFFFFF;
 }
 
 export global Sizes {
-    out property <length> focus_thickness: 2px;
-    out property <length> group_gap: 8px;
+    in-out property <length> focus_thickness: 2px;
+    in-out property <length> focus_ring_padding: 4px;
+    in-out property <length> group_gap: 8px;
+    in-out property <length> checkbox_gap: 16px;
+    in-out property <length> font_size: 32px;
 }
