@@ -10,8 +10,6 @@ export component SelectionButton inherits SelectionRing {
         x: Sizes.focus_ring_padding;
         y: Sizes.focus_ring_padding;
         text: title;
-        font-family: "Pixel Operator 8";
-        font-size: Sizes.font_size;
         color: Palette.font_color;
         // Center align text
         width: parent.width;
@@ -37,8 +35,6 @@ export component CheckboxButton inherits SelectionRing {
         text := Text {
             text: title;
             y: (parent.height - Sizes.font_size) / 2;
-            font-family: "Pixel Operator 8";
-            font-size: Sizes.font_size;
             color: Palette.font_color;
         }
     }
