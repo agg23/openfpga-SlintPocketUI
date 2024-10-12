@@ -15,6 +15,12 @@ export component SelectionButton inherits SelectionRing {
         width: parent.width;
         horizontal-alignment: center;
     }
+
+    states [
+        disabled when self.disabled: {
+            text.color: Palette.font_disabled_color;
+        }
+    ]
 }
 
 export component CheckboxButton inherits SelectionRing {

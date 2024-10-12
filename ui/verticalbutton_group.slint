@@ -9,5 +9,6 @@ export component VerticalButtonGroup inherits VerticalLayout {
     for entry[i] in entries: SelectionButton {
         title: entry.title;
         active: i == active_index;
+        disabled: entry.disabled;
     }
 }

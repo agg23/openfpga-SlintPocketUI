@@ -3,10 +3,12 @@ import { Sizes } from "constants.slint";
 
 export struct SelectionEntry {
   title: string,
+  disabled: bool,
 }
 
 export component SelectionRing inherits Rectangle {
     in property <bool> active;
+    in property <bool> disabled;
     states [
         active when active: {
             border-color: Palette.focus_border;
